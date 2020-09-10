@@ -6,7 +6,8 @@ package de.tarent.coap.intro.client;
 import org.eclipse.californium.core.CoapClient;
 import org.eclipse.californium.core.CoapResponse;
 
-import org.eclispe.californium.core.Utils;
+import org.eclipse.californium.core.Utils;
+import org.eclipse.californium.core.coap.MediaTypeRegistry;
 
 public class App {
     public String getGreeting() {
@@ -102,7 +103,7 @@ public class App {
                 
             }
 
-            response = client.put("test");
+            response = client.put("test", MediaTypeRegistry.TEXT_PLAIN);
 
             if (response!=null) {
                 System.out.println(System.lineSeparator() + "ADVANCED" + System.lineSeparator());
