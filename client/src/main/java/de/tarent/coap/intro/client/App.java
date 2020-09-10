@@ -6,6 +6,8 @@ package de.tarent.coap.intro.client;
 import org.eclipse.californium.core.CoapClient;
 import org.eclipse.californium.core.CoapResponse;
 
+import org.eclispe.californium.core.Utils;
+
 public class App {
     public String getGreeting() {
         return "Hello world.";
@@ -18,15 +20,101 @@ public class App {
             
             if (response!=null) {
             
-                System.out.println( response.getCode() );
-                System.out.println( response.getOptions() );
-                System.out.println( response.getResponseText() );
+                System.out.println(System.lineSeparator() + "ADVANCED" + System.lineSeparator());
+					// access advanced API with access to more details through
+					// .advanced()
+				System.out.println(Utils.prettyPrint(response));
                 
             } else {
                 
                 System.out.println("Request failed");
                 
             }
+        } catch(Exception cex) {
+            cex.printStackTrace();
+        }
+
+        client = new CoapClient("coap://localhost/subpath/Another");
+        try {
+            CoapResponse response = client.get();
+            
+            if (response!=null) {
+                System.out.println(System.lineSeparator() + "ADVANCED" + System.lineSeparator());
+					// access advanced API with access to more details through
+					// .advanced()
+				System.out.println(Utils.prettyPrint(response));
+            } else {
+                
+                System.out.println("Request failed");
+                
+            }
+        } catch(Exception cex) {
+            cex.printStackTrace();
+        }
+
+        client = new CoapClient("coap://localhost/time");
+        try {
+            CoapResponse response = client.get();
+            
+            if (response!=null) {
+                System.out.println(System.lineSeparator() + "ADVANCED" + System.lineSeparator());
+					// access advanced API with access to more details through
+					// .advanced()
+				System.out.println(Utils.prettyPrint(response));
+            } else {
+                
+                System.out.println("Request failed");
+                
+            }
+        } catch(Exception cex) {
+            cex.printStackTrace();
+        }
+
+        client = new CoapClient("coap://localhost/removeme!");
+        try {
+            CoapResponse response = client.delete();
+            
+            if (response!=null) {
+                System.out.println(System.lineSeparator() + "ADVANCED" + System.lineSeparator());
+					// access advanced API with access to more details through
+					// .advanced()
+				System.out.println(Utils.prettyPrint(response));
+            } else {
+                
+                System.out.println("Request failed");
+                
+            }
+        } catch(Exception cex) {
+            cex.printStackTrace();
+        }
+        client = new CoapClient("coap://localhost/writeme!");
+        try {
+            CoapResponse response = client.get();
+            
+            if (response!=null) {
+                System.out.println(System.lineSeparator() + "ADVANCED" + System.lineSeparator());
+					// access advanced API with access to more details through
+					// .advanced()
+				System.out.println(Utils.prettyPrint(response));
+            } else {
+                
+                System.out.println("Request failed");
+                
+            }
+
+            response = client.put("test");
+
+            if (response!=null) {
+                System.out.println(System.lineSeparator() + "ADVANCED" + System.lineSeparator());
+					// access advanced API with access to more details through
+					// .advanced()
+				System.out.println(Utils.prettyPrint(response));
+            } else {
+                
+                System.out.println("Request failed");
+                
+            }
+
         } catch(Exception cex) {
             cex.printStackTrace();
         }
