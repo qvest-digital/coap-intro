@@ -5,6 +5,7 @@ package de.tarent.coap.intro.client;
 
 import org.eclipse.californium.core.CoapClient;
 import org.eclipse.californium.core.CoapResponse;
+import org.eclipse.californium.core.Utils;
 
 public class App {
     public String getGreeting() {
@@ -17,10 +18,7 @@ public class App {
             CoapResponse response = client.get();
             
             if (response!=null) {
-            
-                System.out.println( response.getCode() );
-                System.out.println( response.getOptions() );
-                System.out.println( response.getResponseText() );
+                System.out.println(Utils.prettyPrint(response));
                 
             } else {
                 
